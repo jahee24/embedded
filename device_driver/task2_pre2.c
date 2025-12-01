@@ -46,7 +46,7 @@ void mode_3_control(int dev) {
             // SW[0], SW[1], SW[2]는 LED 토글 명령으로 사용
             if (sw_idx_int >= 0 && sw_idx_int <= 2) {
                 printf("  -> SW[%d] 감지: LED 토글\n", sw_idx_int);
-                ioctl(dev, IOCTL_MODE_3_TOGGLE, sw_idx_int);
+                ioctl(dev, IOCTL_MODE_3_TOGGLE, &sw_idx_int);
             }
         }
     }
