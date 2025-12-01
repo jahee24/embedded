@@ -158,7 +158,7 @@ static ssize_t pir_driver_read(struct file * file, char * buf, size_t length, lo
     irq_num = 0;
     
     if (ret < 0) printk(KERN_INFO "pir driver copy to user failed!\n");
-    return 0;
+    return sizeof(msg);
 }
 
 
