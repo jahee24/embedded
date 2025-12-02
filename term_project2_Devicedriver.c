@@ -83,8 +83,8 @@ static int led_driver_write(struct file *file,const char *buf,size_t length, lof
     for(i=0; i<4; i++){
     gpio_direction_output(led[i],LOW);
     led_state[i]=0;
-    mode_num=0;
     }
+     mode_num=-1;
      break;
     }
     break;
@@ -96,7 +96,7 @@ static int led_driver_write(struct file *file,const char *buf,size_t length, lof
     gpio_direction_output(led[i],LOW);
     break;
   }
-  if(current_mode==3 && mode_num>0 && mode_num<4){
+  if(current_mode==3 && mode_num>=0 && mode_num<4){
     if(led_state[mode_num]==0){
      gpio_direction_output(led[mode_num],HIGH);
      led_state[mode_num]=1;
